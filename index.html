@@ -1,63 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      overflow: hidden;
-      height: 100%;
-    }
-    canvas {
-      display: block;
-    }
-  </style>
+  <meta charset="utf-8">
+
+  <!-- Open Graph tags for Discord -->
+  <meta property="og:title" content="Click">
+  <meta property="og:image" content="https://files.catbox.moe/edckta.gif">
+  <meta property="og:url" content="https://fullhook.fun/">
+  <meta property="og:type" content="website">
+
+  <!-- Make it big in Discord preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bypass's Bio">
+  <meta name="twitter:description" content="Click to view my bio">
+  <meta name="twitter:image" content="https://files.catbox.moe/edckta.gif">
+
+  <title>Redirecting…</title>
 </head>
 <body>
-<canvas id="matrix"></canvas>
+  <script>
+    // Give Discord's bot just enough time to grab the OG tags before redirecting
+    setTimeout(function() {
+      window.location.replace("https://fakecrime.bio/hook");
+    }, 100); // 0.1 seconds
+  </script>
 
-<script>
-  // Matrix effect
-  const canvas = document.getElementById("matrix");
-  const ctx = canvas.getContext("2d");
-
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-
-  const chars = "1234567890";
-  const matrix = chars.split("");
-
-  const fontSize = 14;
-  const columns = canvas.width / fontSize;
-  const drops = [];
-
-  for (let x = 0; x < columns; x++) drops[x] = 1;
-
-  function draw() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = "#0F0";
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-      const text = matrix[Math.floor(Math.random() * matrix.length)];
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-      drops[i]++;
-    }
-  }
-
-  setInterval(draw, 33);
-
-  // Instant redirect
-  setTimeout(() => {
-    window.location.href = "https://fakecrime.bio/hook";
-  }, 500); // 0.5 second delay so effect shows briefly
-</script>
+  Redirecting… If you are not redirected, 
+  <a href="https://fakecrime.bio/hook">click here</a>.
 </body>
 </html>
